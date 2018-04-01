@@ -1,6 +1,7 @@
 import React from 'react';
 
 const GOOGLE_HOST = 'http://www.google.co.kr/#newwindow=1';
+const TORRENT = 'torrent';
 
 export default class BroadcastTableRow extends React.Component {
     constructor(props) {
@@ -10,7 +11,7 @@ export default class BroadcastTableRow extends React.Component {
     }
 
     makeUrl() {
-        const queryValue = `${this.props.broadcast.name} ${this.props.recentBroadcastDate.format('YYMMDD')}`;
+        const queryValue = `${this.props.broadcast.name} ${this.props.recentBroadcastDate.format('YYMMDD')} ${TORRENT}`;
         const queryString = ['q', queryValue].map(each => encodeURIComponent(each)).join('=');
         return [GOOGLE_HOST, queryString].join('&');
     }
